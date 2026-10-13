@@ -67,7 +67,7 @@ m.getCardinalDirection(277); // "O"
 
 ## Fase 2 — Utilitários (funções puras, sem DOM e sem rede)
 
-### [ ] T03 — Mapa de weather codes
+### [x] T03 — Mapa de weather codes
 
 **Referências:** PRD §4.4, RF05 (linha "Condição do tempo").
 
@@ -76,17 +76,17 @@ m.getCardinalDirection(277); // "O"
 - Exportar `getWeatherCondition(code: number, isDay: boolean): { emoji: string; label: string }`.
 
 **Critérios de aprovação:**
-- [ ] Os 28 códigos da tabela do PRD §4.4 estão no mapa, com emoji e descrição iguais aos do PRD.
-- [ ] `getWeatherCondition(0, true)` → `{ emoji: '☀️', label: 'Céu limpo' }`.
-- [ ] `getWeatherCondition(0, false)` → emoji `🌙`.
-- [ ] `getWeatherCondition(1, false)` → emoji `🌙`, label `Predominantemente limpo`.
-- [ ] `getWeatherCondition(2, false)` → emoji `⛅` (a troca por lua vale só para 0 e 1).
-- [ ] `getWeatherCondition(999, true)` → `{ emoji: '🌡️', label: 'Condição desconhecida' }`.
-- [ ] `npm run build` passa.
+- [x] Os 28 códigos da tabela do PRD §4.4 estão no mapa, com emoji e descrição iguais aos do PRD.
+- [x] `getWeatherCondition(0, true)` → `{ emoji: '☀️', label: 'Céu limpo' }`.
+- [x] `getWeatherCondition(0, false)` → emoji `🌙`.
+- [x] `getWeatherCondition(1, false)` → emoji `🌙`, label `Predominantemente limpo`.
+- [x] `getWeatherCondition(2, false)` → emoji `⛅` (a troca por lua vale só para 0 e 1).
+- [x] `getWeatherCondition(999, true)` → `{ emoji: '🌡️', label: 'Condição desconhecida' }`.
+- [x] `npm run build` passa.
 
 ---
 
-### [ ] T04 — Utilitários de vento
+### [x] T04 — Utilitários de vento
 
 **Referências:** PRD §4.5.
 
@@ -96,13 +96,13 @@ m.getCardinalDirection(277); // "O"
   - `getArrowRotation(deg: number): number` → `(deg + 180) % 360`.
 
 **Critérios de aprovação:**
-- [ ] `getCardinalDirection(0)` → `N`; `(22)` → `N`; `(23)` → `NE`; `(90)` → `L`; `(180)` → `S`; `(277)` → `O`; `(338)` → `N`; `(360)` → `N`.
-- [ ] `getArrowRotation(277)` → `97`; `getArrowRotation(0)` → `180`; `getArrowRotation(180)` → `0`.
-- [ ] `npm run build` passa.
+- [x] `getCardinalDirection(0)` → `N`; `(22)` → `N`; `(23)` → `NE`; `(90)` → `L`; `(180)` → `S`; `(277)` → `O`; `(338)` → `N`; `(360)` → `N`.
+- [x] `getArrowRotation(277)` → `97`; `getArrowRotation(0)` → `180`; `getArrowRotation(180)` → `0`.
+- [x] `npm run build` passa.
 
 ---
 
-### [ ] T05 — Utilitários de formatação
+### [x] T05 — Utilitários de formatação
 
 **Referências:** PRD §4.6, RF05.
 
@@ -114,13 +114,13 @@ m.getCardinalDirection(277); // "O"
   - `formatDate(isoLocal: string): string`
 
 **Critérios de aprovação:**
-- [ ] `formatTemperature(19.4, '°C')` → `19°C`; `formatTemperature(-0.6, '°C')` → `-1°C`; `formatTemperature(-0.4, '°C')` → `0°C` (nunca `-0°C`).
-- [ ] `formatPercent(92, '%')` → `92%`; `formatPercent(72.6, '%')` → `73%`.
-- [ ] `formatWindSpeed(5.8, 'km/h')` → `5,8 km/h`; `formatWindSpeed(12, 'km/h')` → `12,0 km/h`.
-- [ ] `formatDate('2026-10-13T09:45')` → `Terça-feira, 13 de outubro`.
-- [ ] `formatDate('2026-01-01T23:59')` → `Quinta-feira, 1 de janeiro`, mesmo com o fuso do navegador alterado (DevTools → Sensors → Location, ou fuso UTC-10 / UTC+14).
-- [ ] A implementação usa `Date.UTC(...)` + `timeZone: 'UTC'`, como descrito no PRD §4.6 (não usa `new Date(isoLocal)` direto).
-- [ ] `npm run build` passa.
+- [x] `formatTemperature(19.4, '°C')` → `19°C`; `formatTemperature(-0.6, '°C')` → `-1°C`; `formatTemperature(-0.4, '°C')` → `0°C` (nunca `-0°C`).
+- [x] `formatPercent(92, '%')` → `92%`; `formatPercent(72.6, '%')` → `73%`.
+- [x] `formatWindSpeed(5.8, 'km/h')` → `5,8 km/h`; `formatWindSpeed(12, 'km/h')` → `12,0 km/h`.
+- [x] `formatDate('2026-10-13T09:45')` → `Terça-feira, 13 de outubro`.
+- [x] `formatDate('2026-01-01T23:59')` → `Quinta-feira, 1 de janeiro`, mesmo com o fuso do navegador alterado (DevTools → Sensors → Location, ou fuso UTC-10 / UTC+14).
+- [x] A implementação usa `Date.UTC(...)` + `timeZone: 'UTC'`, como descrito no PRD §4.6 (não usa `new Date(isoLocal)` direto).
+- [x] `npm run build` passa.
 
 ---
 
