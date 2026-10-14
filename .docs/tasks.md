@@ -126,7 +126,7 @@ m.getCardinalDirection(277); // "O"
 
 ## Fase 3 — Módulo de API
 
-### [ ] T06 — `getCityLocation` (geocodificação)
+### [x] T06 — `getCityLocation` (geocodificação)
 
 **Referências:** PRD §4.2 (validação de entrada, endpoints), RF02, RF03, RNF07, RNF08.
 
@@ -137,17 +137,17 @@ m.getCardinalDirection(277); // "O"
 - Converter `country_code` → `countryCode`.
 
 **Critérios de aprovação:**
-- [ ] `getCityLocation('')` e `getCityLocation('   ')` retornam `null` **sem** requisição na aba Network.
-- [ ] `getCityLocation('Rio de Janeiro')` retorna objeto com `name: 'Rio de Janeiro'`, `countryCode: 'BR'`, `latitude`/`longitude` numéricos e `timezone: 'America/Sao_Paulo'`.
-- [ ] `getCityLocation('xyzabc123')` retorna `null`.
-- [ ] Com a rede desligada (DevTools → Network → Offline), retorna `null` sem erro não tratado no console.
-- [ ] Na aba Network, a URL tem os parâmetros `name`, `count=1`, `language=pt` e `format=json`, com o nome codificado (ex.: `Rio+de+Janeiro` ou `Rio%20de%20Janeiro`).
-- [ ] A função nunca lança exceção.
-- [ ] `npm run build` passa.
+- [x] `getCityLocation('')` e `getCityLocation('   ')` retornam `null` **sem** requisição na aba Network.
+- [x] `getCityLocation('Rio de Janeiro')` retorna objeto com `name: 'Rio de Janeiro'`, `countryCode: 'BR'`, `latitude`/`longitude` numéricos e `timezone: 'America/Sao_Paulo'`.
+- [x] `getCityLocation('xyzabc123')` retorna `null`.
+- [x] Com a rede desligada (DevTools → Network → Offline), retorna `null` sem erro não tratado no console.
+- [x] Na aba Network, a URL tem os parâmetros `name`, `count=1`, `language=pt` e `format=json`, com o nome codificado (ex.: `Rio+de+Janeiro` ou `Rio%20de%20Janeiro`).
+- [x] A função nunca lança exceção.
+- [x] `npm run build` passa.
 
 ---
 
-### [ ] T07 — `getCurrentWeather` (clima atual)
+### [x] T07 — `getCurrentWeather` (clima atual)
 
 **Referências:** PRD §4.2, §4.3 (campos obrigatórios e fallback de unidades), RF03.
 
@@ -158,17 +158,17 @@ m.getCardinalDirection(277); // "O"
 - Ler `current_units`, com fallback (`°C`, `%`, `km/h`, `°`) para cada unidade que faltar.
 
 **Critérios de aprovação:**
-- [ ] `getCurrentWeather(NaN, 10, 'UTC')`, `getCurrentWeather(10, Infinity, 'UTC')` e `getCurrentWeather(10, 10, '')` retornam `null` **sem** requisição.
-- [ ] `getCurrentWeather(-22.9, -43.2, 'America/Sao_Paulo')` retorna objeto com todos os campos de `CurrentWeather`, incluindo `units`.
-- [ ] `time` vem no formato local (`YYYY-MM-DDTHH:mm`), sem offset.
-- [ ] Se um campo obrigatório faltar na resposta, retorna `null` (verificável lendo o código: todos os 9 campos obrigatórios são checados com `typeof`).
-- [ ] Com a rede desligada, retorna `null` sem erro não tratado no console.
-- [ ] A função nunca lança exceção.
-- [ ] `npm run build` passa.
+- [x] `getCurrentWeather(NaN, 10, 'UTC')`, `getCurrentWeather(10, Infinity, 'UTC')` e `getCurrentWeather(10, 10, '')` retornam `null` **sem** requisição.
+- [x] `getCurrentWeather(-22.9, -43.2, 'America/Sao_Paulo')` retorna objeto com todos os campos de `CurrentWeather`, incluindo `units`.
+- [x] `time` vem no formato local (`YYYY-MM-DDTHH:mm`), sem offset.
+- [x] Se um campo obrigatório faltar na resposta, retorna `null` (verificável lendo o código: todos os 9 campos obrigatórios são checados com `typeof`).
+- [x] Com a rede desligada, retorna `null` sem erro não tratado no console.
+- [x] A função nunca lança exceção.
+- [x] `npm run build` passa.
 
 ---
 
-### [ ] T08 — `searchCityWeather` (orquestração)
+### [x] T08 — `searchCityWeather` (orquestração)
 
 **Referências:** PRD §4.2 (assinaturas), RF02, RF03.
 
@@ -176,11 +176,11 @@ m.getCardinalDirection(277); // "O"
 - Implementar `searchCityWeather(name)` encadeando `getCityLocation` → `getCurrentWeather`, retornando `CityWeather | null`.
 
 **Critérios de aprovação:**
-- [ ] `searchCityWeather('Rio de Janeiro')` retorna `{ location, weather }` preenchidos.
-- [ ] `searchCityWeather('xyzabc123')` retorna `null` e faz só **uma** requisição (a de geocodificação).
-- [ ] `searchCityWeather('')` retorna `null` sem requisições.
-- [ ] `src/services/openMeteo.ts` é o único arquivo do projeto com `fetch` ou `open-meteo.com` (conferir com busca no projeto).
-- [ ] `npm run build` passa.
+- [x] `searchCityWeather('Rio de Janeiro')` retorna `{ location, weather }` preenchidos.
+- [x] `searchCityWeather('xyzabc123')` retorna `null` e faz só **uma** requisição (a de geocodificação).
+- [x] `searchCityWeather('')` retorna `null` sem requisições.
+- [x] `src/services/openMeteo.ts` é o único arquivo do projeto com `fetch` ou `open-meteo.com` (conferir com busca no projeto).
+- [x] `npm run build` passa.
 
 ---
 
