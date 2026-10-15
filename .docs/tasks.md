@@ -186,7 +186,7 @@ m.getCardinalDirection(277); // "O"
 
 ## Fase 4 — Interface
 
-### [ ] T09 — Estrutura HTML e referências do DOM
+### [x] T09 — Estrutura HTML e referências do DOM
 
 **Referências:** PRD §4.1, §5.1, RF01, RNF06.
 
@@ -197,15 +197,15 @@ m.getCardinalDirection(277); // "O"
 - Criar `src/ui/elements.ts` exportando as referências: `searchForm`, `searchInput`, `searchButton` e `resultCard`. Se algum elemento não existir, lançar erro claro na inicialização.
 
 **Critérios de aprovação:**
-- [ ] Clicar no `<label>` foca o input (associação `for`/`id` correta).
-- [ ] O card tem `aria-live="polite"`.
-- [ ] `elements.ts` não usa `!` sem verificação (non-null assertion) para os elementos.
-- [ ] A página carrega sem erros no console.
-- [ ] `npm run build` passa.
+- [x] Clicar no `<label>` foca o input (associação `for`/`id` correta).
+- [x] O card tem `aria-live="polite"`.
+- [x] `elements.ts` não usa `!` sem verificação (non-null assertion) para os elementos.
+- [x] A página carrega sem erros no console.
+- [x] `npm run build` passa.
 
 ---
 
-### [ ] T10 — Estilos base: tokens, página e busca
+### [x] T10 — Estilos base: tokens, página e busca
 
 **Referências:** PRD §5.1 (página, área superior, card), §5.2, §5.3.
 
@@ -214,15 +214,15 @@ m.getCardinalDirection(277); // "O"
 - Classe utilitária para ocultar visualmente o label (ex.: `.sr-only`).
 
 **Critérios de aprovação:**
-- [ ] Todos os tokens do PRD §5.2 existem em `:root` e as cores são usadas via `var(...)`.
-- [ ] Fundo da página cinza escuro; formulário centralizado, sem background, com input e botão na mesma linha.
-- [ ] Input com anel/borda `--color-accent` no foco; botão escurece no hover; estilo `:disabled` com opacidade reduzida e `cursor: not-allowed`.
-- [ ] Card branco centralizado, com largura máxima de 800px e cantos ≈24px.
-- [ ] `npm run build` passa.
+- [x] Todos os tokens do PRD §5.2 existem em `:root` e as cores são usadas via `var(...)`.
+- [x] Fundo da página cinza escuro; formulário centralizado, sem background, com input e botão na mesma linha.
+- [x] Input com anel/borda `--color-accent` no foco; botão escurece no hover; estilo `:disabled` com opacidade reduzida e `cursor: not-allowed`.
+- [x] Card branco centralizado, com largura máxima de 800px e cantos ≈24px.
+- [x] `npm run build` passa.
 
 ---
 
-### [ ] T11 — Renderização dos estados vazio, carregando e não encontrado
+### [x] T11 — Renderização dos estados vazio, carregando e não encontrado
 
 **Referências:** PRD RF04, §5.5 (vazio, carregando, não encontrado), RNF06, RNF08.
 
@@ -237,16 +237,16 @@ m.getCardinalDirection(277); // "O"
 - Em `main.ts`, chamar `renderEmpty()` no carregamento.
 
 **Critérios de aprovação:**
-- [ ] Ao abrir o app, aparece o estado vazio (🌍, "Busque uma cidade", subtítulo do PRD) e **nenhuma** requisição na aba Network.
-- [ ] Chamando `renderLoading()` pelo console, aparece o spinner + "Buscando..." com a mesma altura do estado vazio (sem salto de layout).
-- [ ] `renderNotFound('<img src=x onerror=alert(1)>')` mostra o texto literalmente, sem executar nada (uso de `textContent`).
-- [ ] Os textos do estado não encontrado são exatamente os do PRD §5.5.
-- [ ] Emojis têm `aria-hidden="true"`.
-- [ ] `npm run build` passa.
+- [x] Ao abrir o app, aparece o estado vazio (🌍, "Busque uma cidade", subtítulo do PRD) e **nenhuma** requisição na aba Network.
+- [x] Chamando `renderLoading()` pelo console, aparece o spinner + "Buscando..." com a mesma altura do estado vazio (sem salto de layout).
+- [x] `renderNotFound('<img src=x onerror=alert(1)>')` mostra o texto literalmente, sem executar nada (uso de `textContent`).
+- [x] Os textos do estado não encontrado são exatamente os do PRD §5.5.
+- [x] Emojis têm `aria-hidden="true"`.
+- [x] `npm run build` passa.
 
 ---
 
-### [ ] T12 — Renderização do resultado
+### [x] T12 — Renderização do resultado
 
 **Referências:** PRD RF05, §4.5 (seta e exibição do vento), §5.1, §5.4, §5.5 (resultado), RNF06, RNF08.
 
@@ -258,17 +258,17 @@ m.getCardinalDirection(277); // "O"
 - CSS: sidebar ≈280px com fundo `--color-sidebar`, cards de métrica, tipografia do PRD §5.4, fade-in ≈200ms desativado com `prefers-reduced-motion: reduce`.
 
 **Critérios de aprovação:**
-- [ ] Chamando `renderResult` pelo console com o retorno de `searchCityWeather('Rio de Janeiro')`, aparecem: emoji da condição, temperatura arredondada com unidade, `Rio de Janeiro, BR`, data no formato `Terça-feira, 13 de outubro`, `☀️ Dia` ou `🌙 Noite`, descrição da condição e as 4 métricas.
-- [ ] Vento exibido como `5,8 km/h` (exemplo) e, abaixo, seta + `O · 277°`; a seta aponta para onde o vento vai.
-- [ ] Cada métrica tem rótulo com emoji (💧, 🌡️, ☔, 💨) e o emoji tem `aria-hidden="true"`.
-- [ ] Nenhum dado da API é inserido com `innerHTML` (conferir no código).
-- [ ] Temperatura é o maior elemento da tela (≈64px, peso 700).
-- [ ] Com "Reduzir movimento" ativado (DevTools → Rendering → `prefers-reduced-motion: reduce`), não há animação.
-- [ ] `npm run build` passa.
+- [x] Chamando `renderResult` pelo console com o retorno de `searchCityWeather('Rio de Janeiro')`, aparecem: emoji da condição, temperatura arredondada com unidade, `Rio de Janeiro, BR`, data no formato `Terça-feira, 13 de outubro`, `☀️ Dia` ou `🌙 Noite`, descrição da condição e as 4 métricas.
+- [x] Vento exibido como `5,8 km/h` (exemplo) e, abaixo, seta + `O · 277°`; a seta aponta para onde o vento vai.
+- [x] Cada métrica tem rótulo com emoji (💧, 🌡️, ☔, 💨) e o emoji tem `aria-hidden="true"`.
+- [x] Nenhum dado da API é inserido com `innerHTML` (conferir no código).
+- [x] Temperatura é o maior elemento da tela (≈64px, peso 700).
+- [x] Com "Reduzir movimento" ativado (DevTools → Rendering → `prefers-reduced-motion: reduce`), não há animação.
+- [x] `npm run build` passa.
 
 ---
 
-### [ ] T13 — Fluxo de busca no `main.ts` e buscas concorrentes
+### [x] T13 — Fluxo de busca no `main.ts` e buscas concorrentes
 
 **Referências:** PRD RF01, RF02, RF04, RF06, §4.7.
 
@@ -278,18 +278,18 @@ m.getCardinalDirection(277); // "O"
 - Desabilitar o formulário durante a busca e reabilitar ao final. Sempre reabilitar, mesmo que algo dê errado, e devolver o foco ao input.
 
 **Critérios de aprovação:**
-- [ ] Buscar "Rio de Janeiro" (Enter ou botão) mostra loading e depois o resultado.
-- [ ] Buscar "xyzabc123" mostra "Nada encontrado" com o termo digitado.
-- [ ] Enviar com o campo vazio ou só com espaços não faz requisição e não muda o estado da tela.
-- [ ] Durante o loading, input e botão ficam desabilitados e o card tem `aria-busy="true"`.
-- [ ] Com a rede em "Slow 3G", disparar uma busca e logo outra (ex.: via console, chamando `searchForm.requestSubmit()` duas vezes com termos diferentes) mostra só o resultado da **última**.
-- [ ] Offline, a busca termina em "Nada encontrado", sem erro não tratado no console e com o formulário reabilitado.
-- [ ] A página não recarrega ao enviar o formulário.
-- [ ] `npm run build` passa.
+- [x] Buscar "Rio de Janeiro" (Enter ou botão) mostra loading e depois o resultado.
+- [x] Buscar "xyzabc123" mostra "Nada encontrado" com o termo digitado.
+- [x] Enviar com o campo vazio ou só com espaços não faz requisição e não muda o estado da tela.
+- [x] Durante o loading, input e botão ficam desabilitados e o card tem `aria-busy="true"`.
+- [x] Com a rede em "Slow 3G", disparar uma busca e logo outra (ex.: via console, chamando `searchForm.requestSubmit()` duas vezes com termos diferentes) mostra só o resultado da **última**.
+- [x] Offline, a busca termina em "Nada encontrado", sem erro não tratado no console e com o formulário reabilitado.
+- [x] A página não recarrega ao enviar o formulário.
+- [x] `npm run build` passa.
 
 ---
 
-### [ ] T14 — Responsividade
+### [x] T14 — Responsividade
 
 **Referências:** PRD §5.6, RNF05.
 
@@ -298,11 +298,11 @@ m.getCardinalDirection(277); // "O"
 - Garantir que input ocupe o espaço disponível e o botão mantenha a largura do conteúdo.
 
 **Critérios de aprovação:**
-- [ ] Em 375px (DevTools → modo dispositivo), o layout fica em coluna única e **não há scroll horizontal**, nos 4 estados.
-- [ ] Em 320px, nada é cortado nem transborda (inclusive nomes longos de cidade, ex.: "Santa Cruz de la Sierra").
-- [ ] Entre 400px e 639px, o grid de métricas continua 2×2; abaixo de 400px, vira 1 coluna.
-- [ ] Em ≥ 640px, sidebar à esquerda (≈280px) e grid à direita.
-- [ ] `npm run build` passa.
+- [x] Em 375px (DevTools → modo dispositivo), o layout fica em coluna única e **não há scroll horizontal**, nos 4 estados.
+- [x] Em 320px, nada é cortado nem transborda (inclusive nomes longos de cidade, ex.: "Santa Cruz de la Sierra").
+- [x] Entre 400px e 639px, o grid de métricas continua 2×2; abaixo de 400px, vira 1 coluna.
+- [x] Em ≥ 640px, sidebar à esquerda (≈280px) e grid à direita.
+- [x] `npm run build` passa.
 
 ---
 
@@ -345,4 +345,6 @@ m.getCardinalDirection(277); // "O"
 
 > Use esta seção para registrar dúvidas, divergências com o PRD ou itens que ficaram de fora.
 
-- _(vazio)_
+- **Sem timeout nas requisições (T13):** `fetch` em `src/services/openMeteo.ts` não tem timeout. Se a rede travar sem falhar (observado uma vez durante os testes com throttling), o card fica em "Buscando..." e o formulário desabilitado até a requisição terminar. O PRD não pede timeout; avaliar adicionar `AbortSignal.timeout(...)` em `fetchJson`.
+- **Contraste do botão (para T15):** texto branco sobre `--color-accent` (#3b82f6) tem contraste ≈3,7:1, abaixo do AA (4,5:1) para texto de 16px. O token é definido pelo PRD §5.2; decidir na T15 se escurece o fundo do botão ou aumenta a fonte.
+- **Animação no ambiente de teste (T12):** o Windows usado nos testes já reporta `prefers-reduced-motion: reduce`; o fade-in de 200ms foi verificado emulando `no-preference`.
