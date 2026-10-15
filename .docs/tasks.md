@@ -308,7 +308,7 @@ m.getCardinalDirection(277); // "O"
 
 ## Fase 5 — Revisão e validação
 
-### [ ] T15 — Revisão de acessibilidade e segurança
+### [x] T15 — Revisão de acessibilidade e segurança
 
 **Referências:** PRD RNF06, RNF07, RNF08.
 
@@ -316,16 +316,16 @@ m.getCardinalDirection(277); // "O"
 - Revisar o código e a página contra cada item de RNF06–RNF08 e corrigir o que faltar.
 
 **Critérios de aprovação:**
-- [ ] Todo emoji decorativo tem `aria-hidden="true"` e está acompanhado de texto.
-- [ ] Contraste AA: textos sobre o fundo escuro e `--color-text-muted` sobre branco/sidebar passam no verificador de contraste do DevTools (ou Lighthouse).
-- [ ] Lighthouse → Acessibilidade sem falhas de `label`, contraste ou ARIA.
-- [ ] Busca no projeto por `innerHTML` não encontra uso com dados da API.
-- [ ] O foco é visível em input e botão ao navegar com Tab.
-- [ ] `npm run build` passa.
+- [x] Todo emoji decorativo tem `aria-hidden="true"` e está acompanhado de texto.
+- [x] Contraste AA: textos sobre o fundo escuro e `--color-text-muted` sobre branco/sidebar passam no verificador de contraste do DevTools (ou Lighthouse).
+- [x] Lighthouse → Acessibilidade sem falhas de `label`, contraste ou ARIA.
+- [x] Busca no projeto por `innerHTML` não encontra uso com dados da API.
+- [x] O foco é visível em input e botão ao navegar com Tab.
+- [x] `npm run build` passa.
 
 ---
 
-### [ ] T16 — Validação final dos critérios de aceite
+### [x] T16 — Validação final dos critérios de aceite
 
 **Referências:** PRD §6 (todos os itens).
 
@@ -334,10 +334,10 @@ m.getCardinalDirection(277); // "O"
 - Conferir se a estrutura de arquivos bate com o PRD §4.1.
 
 **Critérios de aprovação:**
-- [ ] Os 9 critérios do PRD §6 passam (registrar abaixo, em Pendências, qualquer item que não puder ser verificado).
-- [ ] A árvore de `src/` corresponde ao PRD §4.1 (sem arquivos extras do scaffold).
-- [ ] `package.json` tem apenas `vite` e `typescript` em `devDependencies` e nenhuma `dependencies`.
-- [ ] `npm run build` passa.
+- [x] Os 9 critérios do PRD §6 passam (registrar abaixo, em Pendências, qualquer item que não puder ser verificado).
+- [x] A árvore de `src/` corresponde ao PRD §4.1 (sem arquivos extras do scaffold).
+- [x] `package.json` tem apenas `vite` e `typescript` em `devDependencies` e nenhuma `dependencies`.
+- [x] `npm run build` passa.
 
 ---
 
@@ -346,5 +346,9 @@ m.getCardinalDirection(277); // "O"
 > Use esta seção para registrar dúvidas, divergências com o PRD ou itens que ficaram de fora.
 
 - **Sem timeout nas requisições (T13):** `fetch` em `src/services/openMeteo.ts` não tem timeout. Se a rede travar sem falhar (observado uma vez durante os testes com throttling), o card fica em "Buscando..." e o formulário desabilitado até a requisição terminar. O PRD não pede timeout; avaliar adicionar `AbortSignal.timeout(...)` em `fetchJson`.
-- **Contraste do botão (para T15):** texto branco sobre `--color-accent` (#3b82f6) tem contraste ≈3,7:1, abaixo do AA (4,5:1) para texto de 16px. O token é definido pelo PRD §5.2; decidir na T15 se escurece o fundo do botão ou aumenta a fonte.
+- **Contraste (resolvido na T15):** dois pares do PRD §5.2 não atingiam AA: texto branco sobre `--color-accent` (3,68:1) e `--color-text-muted` sobre `--color-sidebar` (4,43:1). Os tokens do PRD foram mantidos e criados dois derivados em `:root`: `--color-accent-strong: #2563eb` (fundo do botão, 5,17:1) e `--color-text-muted-strong: #4b5563` (data, dia/noite e condição na sidebar, 6,92:1). `--color-accent` continua no anel de foco e na seta do vento (contraste ≥ 3:1, suficiente para elementos não textuais). Divergência visual pequena em relação ao PRD §5.3/§5.4.
 - **Animação no ambiente de teste (T12):** o Windows usado nos testes já reporta `prefers-reduced-motion: reduce`; o fade-in de 200ms foi verificado emulando `no-preference`.
+- **Título da página (T15):** adicionado `<h1 class="sr-only">Clima</h1>` no `index.html` para a hierarquia de títulos (os títulos visíveis começam em `h2`).
+- **Tipos (T16):** `src/types/weather.ts` usa `type` em vez de `interface` (PRD §4.3). Os campos e tipos são idênticos e o build passa; manter ou voltar para `interface` é só uma questão de estilo.
+- **Verificação da Fase 5:** Lighthouse → Acessibilidade = 100 (estado inicial). axe-core (WCAG 2 A/AA + boas práticas) sem violações nos estados vazio, resultado e não encontrado. Os 9 critérios do PRD §6 foram verificados com Chrome headless (puppeteer-core e axe rodando fora do projeto, sem alterar o `package.json`), inclusive offline, em 375px e em 320px.
+- **Nova paleta (pós-Fase 5):** a pedido do usuário, as cores trocaram para um tema "céu noturno": fundo azul-marinho em degradê (`--color-bg` #0b1d36 → `--color-bg-end` #173a66), sidebar azul-céu claro (#e6f0fb), destaque `--color-accent` #38bdf8 e botão/seta em `--color-accent-strong` #0369a1. Com isso, os valores dos tokens em `src/style.css` **divergem do PRD §5.2** (os nomes foram mantidos). Todos os pares de texto continuam AA e o axe segue sem violações. `--color-text-muted-strong` foi removido: `--color-text-muted` (#52637a) já tem 5,3:1 sobre a sidebar.

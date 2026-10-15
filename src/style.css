@@ -1,14 +1,18 @@
 /* ===== Tokens (PRD §5.2) ===== */
 :root {
-  --color-bg:          #1f2329;  /* fundo da página — cinza escuro */
+  --color-bg:          #0b1d36;  /* fundo da página — azul-marinho (céu noturno) */
+  --color-bg-end:      #173a66;  /* fim do degradê do fundo */
   --color-surface:     #ffffff;  /* card */
-  --color-sidebar:     #f3f5f8;
-  --color-metric:      #f7f8fa;  /* cards de métrica */
-  --color-text:        #1f2329;
-  --color-text-muted:  #6b7280;
-  --color-text-invert: #f3f4f6;  /* textos sobre o fundo escuro */
-  --color-accent:      #3b82f6;  /* botão, foco */
-  --color-input-bg:    #2b3038;
+  --color-sidebar:     #e6f0fb;  /* azul-céu bem claro */
+  --color-metric:      #f3f7fc;  /* cards de métrica */
+  --color-text:        #0f2540;
+  --color-text-muted:  #52637a;
+  --color-text-invert: #eef4fb;  /* textos sobre o fundo escuro */
+  --color-accent:      #38bdf8;  /* anel de foco, spinner */
+  --color-input-bg:    #132b4d;
+
+  /* Derivado para contraste AA (RNF06) */
+  --color-accent-strong: #0369a1;  /* fundo do botão (5,9:1 com branco) e seta do vento */
 
   --radius-card:   24px;
   --radius-metric: 16px;
@@ -57,6 +61,8 @@ body {
   line-height: 1.5;
   color: var(--color-text);
   background-color: var(--color-bg);
+  background-image: linear-gradient(160deg, var(--color-bg) 0%, var(--color-bg-end) 100%);
+  background-attachment: fixed;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -105,7 +111,7 @@ body {
   padding: 12px 24px;
   font-weight: 600;
   color: var(--color-surface);
-  background-color: var(--color-accent);
+  background-color: var(--color-accent-strong);
   border: none;
   border-radius: var(--radius-input);
   cursor: pointer;
@@ -113,7 +119,7 @@ body {
 }
 
 .search__button:hover:not(:disabled) {
-  background-color: color-mix(in srgb, var(--color-accent), var(--color-text) 20%);
+  background-color: color-mix(in srgb, var(--color-accent-strong), var(--color-text) 20%);
 }
 
 .search__button:focus-visible {
@@ -301,7 +307,7 @@ body {
   display: inline-block;
   font-size: 16px;
   font-weight: 700;
-  color: var(--color-accent);
+  color: var(--color-accent-strong);
 }
 
 /* ===== Responsividade (PRD §5.6) ===== */
